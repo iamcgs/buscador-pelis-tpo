@@ -11,6 +11,7 @@ body {
   width: 90%;
   max-width: 1440px;
   min-height: 100vh;
+  padding: 30px;
   color: lightgray;
   font-family: 'Roboto', sans-serif;
 }
@@ -18,7 +19,7 @@ body {
 header,
 main,
 footer {
-  padding: 20px 30px;
+  padding: 20px 0;
 }
 
 header {
@@ -118,6 +119,36 @@ form textarea {
   font-size: 1rem;
   border-radius: 5px;
   outline: none;
+}
+
+/* Back button styles */
+.back-btn a {
+  text-decoration: none;
+  color: lightgray;
+  transition: all 1s ease-in-out;
+}
+
+.back-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 175px;
+  color: lightgray;
+  background-color: transparent;
+  font-size: 1.15em;
+  border: 2px solid #d3d3d3;
+  border-radius: 5px;
+  padding: 10px 15px;
+  box-shadow: 3px 5px 16px -5px rgba(255, 255, 255, 0.25);
+  -webkit-box-shadow: 3px 5px 16px -5px rgba(255, 255, 255, 0.25);
+  -moz-box-shadow: 3px 5px 16px -5px rgba(255, 255, 255, 0.25);
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.back-btn:hover {
+  transform: scale(1.02);
 }
 
 /* Footer */
