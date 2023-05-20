@@ -334,6 +334,7 @@ const SERIES = [
 const moviesEl = document.getElementById('movies');
 const movieDetails = document.getElementById('movie-details');
 const seriesEl = document.querySelector('.series');
+const serieDetails = document.getElementById('serie-details');
 
 // Muestra las 10 películas más populares
 const getPopularMovies = async () => {
@@ -343,11 +344,14 @@ const getPopularMovies = async () => {
     const div = document.createElement('div');
     div.classList.add('card');
     div.innerHTML = `
-           <img
-              src="https://image.tmdb.org/t/p/w500${movie.backdrop_path}"
-              class="card-img-top"
-              alt="${movie.title}"
-            />`;
+          <a href="/movie-details.html?id=${movie.id}">
+            <img
+                src="https://image.tmdb.org/t/p/w500${movie.backdrop_path}"
+                class=""
+                alt="${movie.title}"
+              />
+          </a>
+              `;
 
     moviesEl.appendChild(div);
   });
@@ -361,14 +365,62 @@ const getPopularSeries = async () => {
     const div = document.createElement('div');
     div.classList.add('card');
     div.innerHTML = `
+        <a href="/serie-details.html?id=${serie.id}">
           <img
               src="https://image.tmdb.org/t/p/w500${serie.poster_path}"
-              class="card-img-top"
+              class=""
               alt="${serie.name}"
             />
+        </a>
         `;
 
     seriesEl.appendChild(div);
+  });
+};
+
+const getMovieDetails = () => {
+  const movieId = Number(window.location.search.split('=')[1]);
+  // console.log(typeof movieId);
+
+  MOVIES.filter((movie) => {
+    if (movie.id === movieId) {
+      const div = document.createElement('div');
+      //  div.classList.add('card');
+      div.innerHTML = `
+             <h3>${movie.title}</h3>
+             <img
+                 src="https://image.tmdb.org/t/p/w500${movie.poster_path}"
+                 class=""
+                 alt="${movie.title}"
+               />
+               <p>${movie.overview}</p>
+               `;
+
+      movieDetails.appendChild(div);
+    }
+  });
+};
+
+const getSerieDetails = () => {
+  const serieId = Number(window.location.search.split('=')[1]);
+  // console.log(serieId);
+
+  SERIES.filter((serie) => {
+    if (serie.id === serieId) {
+      const div = document.createElement('div');
+      //  div.classList.add('card');
+      div.innerHTML = `
+             <h3>${serie.name}</h3>
+             <img
+             src="https://image.tmdb.org/t/p/w500${serie.poster_path}"
+             class=""
+                 alt="${serie.name}"
+                 />
+            <p>${serie.overview}</p>
+            `;
+
+      serieDetails.appendChild(div);
+    }
   });
 };
 
@@ -401,9 +453,12 @@ const init = () => {
     case '/series.html':
       getPopularSeries();
       break;
-    // case '/movie-details.html':
-    //   movieDetails();
-    //   break;
+    case '/movie-details.html':
+      getMovieDetails();
+      break;
+    case '/serie-details.html':
+      getSerieDetails();
+      break;
     case '/contacto.html':
       console.log('contacto');
       break;
