@@ -52,6 +52,39 @@ nav ul {
   text-decoration: none;
 }
 
+/* Search Form styles */
+form {
+  margin: 0 auto;
+}
+
+.search-type {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.search-type label {
+  margin-right: 15px;
+  font-style: italic;
+  cursor: pointer;
+}
+
+.search-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+input[type='radio'] {
+  accent-color: #ffff00;
+  width: 15px;
+}
+
+input[type='submit'] {
+  color: #333;
+  background-color: #ffff00;
+}
+
 form input {
   width: 100%;
   height: 40px;
