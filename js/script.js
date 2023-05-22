@@ -9,6 +9,60 @@ const movieDetails = document.getElementById('movie-details');
 const seriesEl = document.querySelector('.series');
 const serieDetails = document.getElementById('serie-details');
 
+const searchForm = document.getElementById('search-form');
+const searchQuery = document.getElementById('search-query');
+const searchResults = document.getElementById('search-results');
+const searchOptions = document.querySelectorAll('input[name="search-type"]');
+
+let searchType = 'movie';
+
+// Chequear tipo de búsqueda seleccionado
+searchOptions.forEach((option) => {
+  option.addEventListener('change', () => {
+    if (option.checked) {
+      searchType = option.value;
+      console.log(`slected ${option.value}`);
+    }
+  });
+});
+
+// Mostrar datos de la búsqueda
+const search = async (query) => {
+  if (query) {
+    const { results } = await searchApi(searchType, query);
+    if (results.length > 0) {
+      searchResults.innerHTML = '';
+      results.forEach((result) => {
+        const div = document.createElement('div');
+
+        div.innerHTML = `
+         <p>${searchType === 'movie' ? result.title : result.name}</p>
+        <a href=${
+          searchType === 'movie'
+            ? `/movie-details.html?id=${result.id}`
+            : `/serie-details.html?id=${result.id}`
+        }>
+          <img
+            src="${
+              result.poster_path !== null
+                ? `https://image.tmdb.org/t/p/w500/${result.poster_path}`
+                : `images/no-image.jpg`
+            }"
+            class=""
+            alt="${result.title}"
+          />
+        </a>
+        `;
+        searchResults.appendChild(div);
+      });
+    } else {
+      searchResults.innerHTML =
+        'No hay resultados para tu búsqueda. Intenta nuevamente.';
+    }
+    searchQuery.value = '';
+  }
+};
+
 // Muestra las 10 películas más populares
 const getPopularMovies = async () => {
   const { results } = await fetchData('movie/popular');
@@ -18,8 +72,11 @@ const getPopularMovies = async () => {
     div.classList.add('card');
     div.innerHTML = `
           <a href="/movie-details.html?id=${movie.id}">
-            <img
-                src="https://image.tmdb.org/t/p/w500${movie.backdrop_path}"
+            <img src="${
+              movie.backdrop_path !== null
+                ? `https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`
+                : `images/no-image.jpg`
+            }"
                 class=""
                 alt="${movie.title}"
               />
@@ -39,8 +96,11 @@ const getPopularSeries = async () => {
     div.classList.add('card');
     div.innerHTML = `
         <a href="/serie-details.html?id=${serie.id}">
-          <img
-              src="https://image.tmdb.org/t/p/w500${serie.poster_path}"
+           src="${
+             serie.poster_path !== null
+               ? `https://image.tmdb.org/t/p/w500/${serie.poster_path}`
+               : `images/no-image.jpg`
+           }"
               class=""
               alt="${serie.name}"
             />
@@ -67,7 +127,11 @@ const getMovieDetails = async () => {
   div.innerHTML = `
               <h3>${movie.title}</h3>
               <img
-                 src="https://image.tmdb.org/t/p/w500${movie.poster_path}"
+                 src="${
+                   movie.poster_path !== null
+                     ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+                     : `images/no-image.jpg`
+                 }"
                  class=""
                  alt="${movie.title}"
                />
@@ -97,7 +161,11 @@ const getSerieDetails = async () => {
   div.innerHTML = `
                  <h3>${serie.name}</h3>
              <img
-                 src="https://image.tmdb.org/t/p/w500${serie.poster_path}"
+                 src="${
+                   serie.poster_path !== null
+                     ? `https://image.tmdb.org/t/p/w500/${serie.poster_path}`
+                     : `images/no-image.jpg`
+                 }"
                  class=""
                  alt="${serie.name}"
                />
@@ -108,6 +176,19 @@ const getSerieDetails = async () => {
                <p><span>Rating:</span> ${serie.vote_average.toFixed(1)} / 10</p>
   `;
   serieDetails.appendChild(div);
+};
+
+// Fetch Search
+const searchApi = async (searchType, searchTerm) => {
+  if (searchTerm) {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/search/${searchType}?query=${searchTerm}&include_adult=true&language=es-AR&page=1&api_key=${MOVIES_API_KEY}`
+    );
+
+    const data = await response.json();
+
+    return data;
+  }
 };
 
 // Fetch Data de la API
@@ -126,14 +207,15 @@ const fetchData = async (endpoint) => {
   return data;
 };
 
-// https://api.themoviedb.org/3/movie/popular?language=es-AR&api_key=
-
 const init = () => {
   switch (currentPage) {
     case '/':
     case '/index.html':
+      searchForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        search(searchQuery.value);
+      });
       getPopularMovies();
-      // getPopularSeries();
       break;
     case '/series.html':
       getPopularSeries();
