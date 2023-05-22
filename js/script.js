@@ -96,11 +96,11 @@ const getPopularSeries = async () => {
     div.classList.add('card');
     div.innerHTML = `
         <a href="/serie-details.html?id=${serie.id}">
-           src="${
-             serie.poster_path !== null
-               ? `https://image.tmdb.org/t/p/w500/${serie.poster_path}`
-               : `images/no-image.jpg`
-           }"
+          <img src="${
+            serie.poster_path !== null
+              ? `https://image.tmdb.org/t/p/w500/${serie.poster_path}`
+              : `images/no-image.jpg`
+          }"
               class=""
               alt="${serie.name}"
             />
