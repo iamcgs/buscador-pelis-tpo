@@ -32,13 +32,31 @@
       </nav>
     </header>
     <main>
-      <form>
-        <input
-          type="text"
-          name=""
-          id=""
-          placeholder="Buscar una serie o película..."
-        />
+      <form id="search-form">
+        <div class="search-type">
+           <input
+              type="radio"
+              id="movie"
+              name="search-type"
+              value="movie"
+              checked
+            />
+            <label for="movie">Películas</label>
+          </div>
+          <div class="search-option">
+            <input type="radio" id="tv" name="search-type" value="tv" />
+            <label for="tv">Series</label>
+          </div>
+        </div>
+        <div class="search-input">
+          <input
+            type="text"
+            name="search-query"
+            id="search-query"
+            placeholder="Buscar una serie o película..."
+          />
+          <input type="submit" value="Buscar">
+        </div>
       </form>
       <section>
         <h2 class="section-title">Películas</h2>
