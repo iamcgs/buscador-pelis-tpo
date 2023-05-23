@@ -96,7 +96,7 @@ form input {
 
 form input::placeholder,
 form textarea::placeholder {
-  color: rgb(186, 187, 188);
+  color: rgb(186, 206, 226);
   font-style: italic;
 }
 
