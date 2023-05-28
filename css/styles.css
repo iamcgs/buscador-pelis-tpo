@@ -13,11 +13,25 @@ body {
   min-height: 100vh;
   padding: 30px;
   color: lightgray;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Dosis', sans-serif;
+  font-family: 'Kanit', sans-serif;
+
+  /*font-family: 'Roboto', sans-serif;*/
+  
 }
 
-header,
-main,
+/*creando el header*/
+header{
+
+ 
+},
+main{
+  font-family: 'Dosis', sans-serif;
+  font-family: 'Kanit', sans-serif;
+
+},
+
+
 footer {
   padding: 20px 0;
 }
@@ -26,17 +40,47 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-weight:bold; 
+  font-weight: 600;
+  
 }
 
 h1 {
   display: flex;
   align-items: center;
   gap: 10px;
+  color: rgb(241, 241, 13);
+  text-shadow: 0 0 30px #fff;
+  
+    
+}
+
+
+h2{ /*revisandoefecto de color en etiquetas h2---verrrrrrrrrr*/
+  color: rgb(245, 245, 243);
+  text-shadow: 0 0 20px #eeff07;
+}
+
+/*se agrego efecto de zoom al logo*/
+img{
+
+  width: 100%;
+  height: 100%;
+  transition: 0.5s;
+  object-fit: cover;
+
+}
+img:hover{
+  transform: scale(1.2);
 }
 
 .logo-text {
   color: #ffff00;
+   
 }
+
+
+a:hover { color:rgb(223, 252, 7); font-size:20px;  } /*efecto de agrandar el enu al pasar el cursor*/
 
 nav ul {
   display: flex;
@@ -44,12 +88,25 @@ nav ul {
   justify-content: end;
   gap: 20px;
   list-style-type: none;
+  
+ 
 }
 
 .nav-link a {
   color: white;
   text-transform: uppercase;
-  text-decoration: none;
+  text-decoration:none;
+  
+ 
+}
+
+/*se agrego el efecto al menu*/
+a:hover {
+  color: #fbf600;
+  cursor: pointer;
+  color: rgb(244, 244, 0);
+  text-shadow: 0 0 30px #fff;
+  
 }
 
 /* Search Form styles */
@@ -61,12 +118,18 @@ form {
   display: flex;
   align-items: center;
   gap: 20px;
+  font-weight:bold;
+  font-weight: 600;
+  
 }
 
 .search-type label {
   margin-right: 15px;
-  font-style: italic;
+  font-family: 'Dosis', sans-serif;
+  font-family: 'Kanit', sans-serif;
+  /*font-style: italic;*/
   cursor: pointer;
+  
 }
 
 .search-option {
@@ -92,12 +155,24 @@ form input {
   border-radius: 5px;
   outline: none;
   padding: 0 20px;
+  font-weight:bold;
+  font-weight: 600;
+  
 }
 
-form input::placeholder,
+form input::placeholder
+{
+  
+  font-weight:bold;
+  font-weight: 600;
+  
+},
 form textarea::placeholder {
-  color: rgb(186, 206, 226);
-  font-style: italic;
+  color: rgb(11, 11, 11);
+  font-style: italic, bold;
+  font-weight:bold;
+  font-weight: 600;
+   
 }
 
 #movies,
@@ -109,6 +184,7 @@ form textarea::placeholder {
 
 .section-title {
   padding: 20px 0;
+  
 }
 
 .card {
@@ -153,6 +229,7 @@ form textarea {
   font-size: 1rem;
   border-radius: 5px;
   outline: none;
+  
 }
 
 /* Back button styles */
@@ -160,6 +237,7 @@ form textarea {
   text-decoration: none;
   color: lightgray;
   transition: all 1s ease-in-out;
+  
 }
 
 .back-btn {
@@ -179,6 +257,7 @@ form textarea {
   -moz-box-shadow: 3px 5px 16px -5px rgba(255, 255, 255, 0.25);
   transition: all 0.5s ease-in-out;
   cursor: pointer;
+  
 }
 
 .back-btn:hover {
@@ -189,6 +268,13 @@ form textarea {
 footer {
   text-align: center;
   margin: 30px auto;
+
+}
+
+footer {
+
+
+
 }
 
 @media (min-width: 640px) {
