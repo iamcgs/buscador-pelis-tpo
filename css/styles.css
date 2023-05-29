@@ -56,7 +56,7 @@ h1 {
 }
 
 
-h2{ /*revisandoefecto de color en etiquetas h2---verrrrrrrrrr*/
+h2{ /*revisandoefecto de color en etiquetas h2*/
   color: rgb(245, 245, 243);
   text-shadow: 0 0 20px #eeff07;
 }
@@ -127,7 +127,6 @@ form {
   margin-right: 15px;
   font-family: 'Dosis', sans-serif;
   font-family: 'Kanit', sans-serif;
-  /*font-style: italic;*/
   cursor: pointer;
   
 }
