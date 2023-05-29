@@ -13,24 +13,19 @@ body {
   min-height: 100vh;
   padding: 30px;
   color: lightgray;
-  font-family: 'Dosis', sans-serif;
-  font-family: 'Kanit', sans-serif;
-
+  font-family: "Dosis", sans-serif;
+  font-family: "Kanit", sans-serif;
   /*font-family: 'Roboto', sans-serif;*/
-  
 }
 
 /*creando el header*/
-header{
+header {
+}
 
- 
-},
-main{
-  font-family: 'Dosis', sans-serif;
-  font-family: 'Kanit', sans-serif;
-
-},
-
+main {
+  font-family: "Dosis", sans-serif;
+  font-family: "Kanit", sans-serif;
+}
 
 footer {
   padding: 20px 0;
@@ -40,9 +35,8 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-weight:bold; 
+  font-weight: bold;
   font-weight: 600;
-  
 }
 
 h1 {
@@ -51,36 +45,34 @@ h1 {
   gap: 10px;
   color: rgb(241, 241, 13);
   text-shadow: 0 0 30px #fff;
-  
-    
 }
 
-
-h2{ /*revisandoefecto de color en etiquetas h2*/
+h2 {
+  /*revisando efecto de color en etiquetas h2*/
   color: rgb(245, 245, 243);
   text-shadow: 0 0 20px #eeff07;
 }
 
 /*se agrego efecto de zoom al logo*/
-img{
-
+img {
   width: 100%;
   height: 100%;
   transition: 0.5s;
   object-fit: cover;
-
 }
-img:hover{
+
+img:hover {
   transform: scale(1.2);
 }
 
 .logo-text {
   color: #ffff00;
-   
 }
 
-
-a:hover { color:rgb(223, 252, 7); font-size:20px;  } /*efecto de agrandar el enu al pasar el cursor*/
+a:hover {
+  color: rgb(223, 252, 7);
+  font-size: 20px;
+} /*efecto de agrandar el enu al pasar el cursor*/
 
 nav ul {
   display: flex;
@@ -88,16 +80,12 @@ nav ul {
   justify-content: end;
   gap: 20px;
   list-style-type: none;
-  
- 
 }
 
 .nav-link a {
   color: white;
   text-transform: uppercase;
-  text-decoration:none;
-  
- 
+  text-decoration: none;
 }
 
 /*se agrego el efecto al menu*/
@@ -106,7 +94,6 @@ a:hover {
   cursor: pointer;
   color: rgb(244, 244, 0);
   text-shadow: 0 0 30px #fff;
-  
 }
 
 /* Search Form styles */
@@ -118,17 +105,15 @@ form {
   display: flex;
   align-items: center;
   gap: 20px;
-  font-weight:bold;
+  font-weight: bold;
   font-weight: 600;
-  
 }
 
 .search-type label {
   margin-right: 15px;
-  font-family: 'Dosis', sans-serif;
-  font-family: 'Kanit', sans-serif;
+  font-family: "Dosis", sans-serif;
+  font-family: "Kanit", sans-serif;
   cursor: pointer;
-  
 }
 
 .search-option {
@@ -137,12 +122,12 @@ form {
   gap: 10px;
 }
 
-input[type='radio'] {
+input[type="radio"] {
   accent-color: #ffff00;
   width: 15px;
 }
 
-input[type='submit'] {
+input[type="submit"] {
   color: #333;
   background-color: #ffff00;
 }
@@ -154,24 +139,20 @@ form input {
   border-radius: 5px;
   outline: none;
   padding: 0 20px;
-  font-weight:bold;
+  font-weight: bold;
   font-weight: 600;
-  
 }
 
-form input::placeholder
-{
-  
-  font-weight:bold;
+form input::placeholder {
+  font-weight: bold;
   font-weight: 600;
-  
-},
+}
+
 form textarea::placeholder {
   color: rgb(11, 11, 11);
   font-style: italic, bold;
-  font-weight:bold;
+  font-weight: bold;
   font-weight: 600;
-   
 }
 
 #movies,
@@ -183,7 +164,6 @@ form textarea::placeholder {
 
 .section-title {
   padding: 20px 0;
-  
 }
 
 .card {
@@ -228,7 +208,6 @@ form textarea {
   font-size: 1rem;
   border-radius: 5px;
   outline: none;
-  
 }
 
 /* Back button styles */
@@ -236,7 +215,6 @@ form textarea {
   text-decoration: none;
   color: lightgray;
   transition: all 1s ease-in-out;
-  
 }
 
 .back-btn {
@@ -256,7 +234,6 @@ form textarea {
   -moz-box-shadow: 3px 5px 16px -5px rgba(255, 255, 255, 0.25);
   transition: all 0.5s ease-in-out;
   cursor: pointer;
-  
 }
 
 .back-btn:hover {
@@ -267,28 +244,58 @@ form textarea {
 footer {
   text-align: center;
   margin: 30px auto;
-
 }
 
-footer {
-
-
-
-}
-
-@media (min-width: 640px) {
+@media (max-width: 640px) {
   body {
     background-color: #333;
   }
+
+  /* Ajuste del tamaño del cuerpo y el relleno en pantallas más pequeñas */
+  body {
+    padding: 10px;
+  }
+
+  /* Ajuste del tamaño y estilo del encabezado en pantallas más pequeñas */
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    gap: 5px;
+  }
+
+  /* Ajuste del tamaño y estilo del menú de navegación en pantallas más pequeñas */
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-link a {
+    font-size: 0.8rem;
+  }
+
+  /* Ajuste del tamaño de la sección de películas y series en pantallas más pequeñas */
+  #movies,
+  .series {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  /* Ajuste del tamaño y estilo del formulario de contacto en pantallas más pequeñas */
+  .contact-form {
+    max-width: 100%;
+  }
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   body {
     background-color: darkgray;
   }
 }
 
-@media (min-width: 1024px) {
+@media (max-width: 1024px) {
   body {
     background-color: rgb(31, 31, 33);
   }
